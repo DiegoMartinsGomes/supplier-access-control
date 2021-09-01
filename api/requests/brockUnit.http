@@ -1,0 +1,16 @@
+###
+# Insert - Brock Unit
+###
+POST http://localhost:3000/blockunits
+Content-Type: application/json
+
+{
+    "block": 43,
+    "unit": 1
+}
+
+###
+# Get All - Brock Unit  
+###
+GET http://localhost:3000/blockunits
+
