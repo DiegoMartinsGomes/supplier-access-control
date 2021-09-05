@@ -1,13 +1,23 @@
-import { Column, Entity, PrimaryGeneratedColumn, Table } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Supplier } from "./supplier.entity";
 
 @Entity()
 export class BlockUnit {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn("uuid")
+    id: string;
 
-    @Column()
+    @Column({ name: "block" })
     block: number;
 
-    @Column()
+    @Column({ name: "unit" })
     unit: number;
+
+    @Column({ name: "status" })
+    status: number;
+
+    @Column({ name: "active", default: true })
+    active: boolean;
+
+    @OneToMany(() => Supplier, x => x.blockUnit)
+    suppliers: Supplier[];
 }

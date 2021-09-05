@@ -5,6 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule } from '@nestjs/config'
 import { BlockUnit } from './entities/block-unit.entity'
 import { BlockUnitController } from './controllers/block-unit/block-unit.controller';
+import { ValidityPeriod } from './entities/validity-period.entity';
+import { Supplier } from './entities/supplier.entity';
 
 @Module({
   imports: [
@@ -17,7 +19,7 @@ import { BlockUnitController } from './controllers/block-unit/block-unit.control
       username: process.env.TYPEORM_USERNAME,
       password: process.env.TYPEORM_PASSWORD,
       database: process.env.TYPEORM_DATABASE,
-      entities: [BlockUnit],
+      entities: [BlockUnit, Supplier, ValidityPeriod],
     }),
     TypeOrmModule.forFeature([BlockUnit])
   ],
