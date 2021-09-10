@@ -25,11 +25,14 @@ export class Supplier {
     @Column({ name: "responsible_contact" })
     responsibleContact: string;
 
+    @Column({ name: "active", default: true })
+    active: boolean;
+
     @ManyToOne(() => BlockUnit, x => x.suppliers, { eager: true })
     @JoinColumn({ name: "block_unit_id" })
     blockUnit: BlockUnit;
 
     @ManyToOne(() => ValidityPeriod, x => x.suppliers, { eager: true })
     @JoinColumn({ name: "validity_period_id" })
-    validityPeriod: ValidityPeriod
+    validityPeriod: ValidityPeriod;
 }

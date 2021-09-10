@@ -7,6 +7,19 @@ Content-Type: application/json
 {
     "block": 43,
     "unit": 11,
+    "status": 2
+}
+
+###
+# Update - Brock Unit
+###
+PUT http://localhost:3000/blockunits/5c4625f8-37a1-4db0-8b0c-c7b1fe78e0d3
+Content-Type: application/json
+
+{
+    "id": "5c4625f8-37a1-4db0-8b0c-c7b1fe78e0d3",
+    "block": 43,
+    "unit": 12,
     "status": 1
 }
 

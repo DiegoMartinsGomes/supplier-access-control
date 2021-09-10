@@ -12,6 +12,9 @@ export class ValidityPeriod {
     @Column({ name: "end_date" })
     endDate: Date;
 
+    @Column({ name: "active", default: true })
+    active: boolean;
+
     @OneToMany(() => Supplier, x => x.validityPeriod)
     suppliers: Supplier[]
 }
