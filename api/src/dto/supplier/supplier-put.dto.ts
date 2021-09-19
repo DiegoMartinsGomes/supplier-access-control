@@ -17,9 +17,6 @@ export class SupplierPutDto {
     registeredBy: string;
 
     @ApiProperty()
-    registeredDate: Date;
-
-    @ApiProperty()
     responsibleContact: string;
 
     @ApiProperty()

@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
+import { BlockUnitFormatedGetDto } from 'src/dto/block-unit/block-unit-formated-get.dto';
 import { BlockUnitPostDto } from 'src/dto/block-unit/block-unit-post.dto';
 import { BlockUnitPutDto } from 'src/dto/block-unit/block-unit-put.dto';
 import { BlockUnit } from 'src/entities/block-unit.entity';
@@ -11,6 +12,13 @@ export class BlockUnitController {
     constructor(
         private readonly blockUnitService: BlockUnitService,
     ) { }
+
+
+    @ApiOkResponse({ type: [BlockUnitResponse] })
+    @Get('formated')
+    async formated(): Promise<BlockUnitFormatedGetDto[]> {
+        return this.blockUnitService.getAllFormated();
+    }
 
     @ApiOkResponse({ type: [BlockUnitResponse] })
     @Get()

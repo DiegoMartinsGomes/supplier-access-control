@@ -6,7 +6,7 @@ import { Supplier } from 'src/entities/supplier.entity';
 import { SupplierResponse } from 'src/responses/supplier.response';
 import { SupplierService } from 'src/services/supplier/supplier.service';
 
-@Controller('supplier')
+@Controller('suppliers')
 export class SupplierController {
     constructor(
         private readonly supplierService: SupplierService,

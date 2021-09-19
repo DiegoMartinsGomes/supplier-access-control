@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { BlockUnitFormatedGetDto } from 'src/dto/block-unit/block-unit-formated-get.dto';
 import { BlockUnitPostDto } from 'src/dto/block-unit/block-unit-post.dto';
 import { BlockUnitPutDto } from 'src/dto/block-unit/block-unit-put.dto';
 import { BlockUnit } from 'src/entities/block-unit.entity';
@@ -11,6 +12,19 @@ export class BlockUnitService {
         @InjectRepository(BlockUnit)
         private readonly blockUnitRepository: Repository<BlockUnit>
     ) { }
+
+    async getAllFormated(): Promise<BlockUnitFormatedGetDto[]> {
+        return (await this.blockUnitRepository.find()).map((blockUnit) => this.formated(blockUnit));
+    }
+
+    private formated(blockUnit: BlockUnit): BlockUnitFormatedGetDto {
+        let dto = new BlockUnitFormatedGetDto();
+        dto.id = blockUnit.id;
+        dto.blockUnit = `${blockUnit.block} ${("00" + blockUnit.unit.toString()).slice(-2)}`;
+        dto.active = blockUnit.active;
+
+        return dto;
+    }
 
     async getAll(): Promise<BlockUnit[]> {
         return this.blockUnitRepository.find();

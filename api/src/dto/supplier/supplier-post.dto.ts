@@ -14,9 +14,6 @@ export class SupplierPostDto {
     registeredBy: string;
 
     @ApiProperty()
-    registeredDate: Date;
-
-    @ApiProperty()
     responsibleContact: string;
 
     @ApiProperty()
