@@ -50,7 +50,7 @@ export default function Supplier() {
     }
 
     function renderBlockUnit(item: any): ReactNode {
-        if (item != undefined)
+        if (item !== undefined)
             return <Option value={item.id}>{item.blockUnit}</Option>;
     }
 

@@ -1,17 +1,6 @@
-import axios, { AxiosInstance } from "axios";
+import { BaseService } from "./base.service";
 
-export class BlockUnitService {
-
-    static create(): AxiosInstance {
-        return axios.create({
-            baseURL: 'http://localhost:3000',
-            withCredentials: false,
-            headers: {
-                'Access-Control-Allow-Origin': 'http://localhost:3000',
-                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-            }
-        });
-    }
+export class BlockUnitService extends BaseService {
 
     static async post(data: any) {
         return await this.create().post('/blockunits', data);
